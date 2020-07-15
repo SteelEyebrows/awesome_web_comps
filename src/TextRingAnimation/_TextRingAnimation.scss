@@ -1,0 +1,57 @@
+
+body, .preloader {
+	display: flex;
+}
+
+body {
+	background: #000;
+	color: #fff;
+	height: 100vh;
+	line-height: 1.5;
+	perspective: 40em;
+}
+
+.preloader {
+	animation: tiltSpin 8s linear infinite;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	width: 17em;
+	height: 17em;
+	&, &__ring{
+		transform-style: preserve-3d
+		}
+	&__ring{
+		animation-name: spin;
+		animation-duration: 4s;
+		animation-timing-function: inherit;
+		animation-iteration-count: inherit;
+		font-size: 2em;
+		position: relative;
+		height: 3rem;
+		width: 1.5rem;
+		}
+	&:nth-child(even){
+			animation-direction: reverse;
+		}
+}
+
+/* Animations */
+@keyframes tiltSpin {
+	from {
+		transform: rotateY(0) rotateX(30deg);
+	}
+	to {
+		transform: rotateY(1turn) rotateX(30deg);
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotateY(0);
+	}
+	to {
+		transform: rotateY(1turn);
+	}
+}
